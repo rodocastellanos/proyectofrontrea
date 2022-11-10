@@ -1,10 +1,11 @@
 import slider1 from "./slider1.png";
 import slider2 from "./slider2.png";
 import slider3 from "./slider3.png";
+import './styles/iniciostyle.css'
 
 function CarruselIngreso(props){
     return (
-        <div className="row g-0">
+        <div className="row g-0 bd-dark .bg-dark-x root">
             <div className="col-lg-7">
                 <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="true">
                     <div class="carousel-indicators">

@@ -1,6 +1,7 @@
 import slider1 from "./slider1.png";
 import slider2 from "./slider2.png";
 import slider3 from "./slider3.png";
+import {Link} from "react-router-dom";
 
 function Inicio(props){
 return (
@@ -50,7 +51,7 @@ return (
                 </div>
                 <div id="errorBox">
                 </div>
-                <a className="w-100 text-decoration-none" href="/registro">¿Eres Nuevo? Registrate aquí</a>
+                <Link to={"/registros"} className="w-100 text-decoration-none" href="#">¿Eres Nuevo? Registrate aquí</Link>
                 <button type="button" onclick="login()" class="btn btn-primary w-100">Iniciar Sesión</button>
               </form>
         </div>
