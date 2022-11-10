@@ -2,6 +2,7 @@ import slider1 from "./slider1.png";
 import slider2 from "./slider2.png";
 import slider3 from "./slider3.png";
 import './styles/iniciostyle.css'
+import {Link} from "react-router-dom";
 
 function CarruselIngreso(props){
     return (
@@ -51,8 +52,8 @@ function CarruselIngreso(props){
                         </div>
                         <div id="errorBox">
                         </div>
-                        <a class="w-100 text-decoration-none" href="/registro">¿Eres Nuevo? Registrate aquí</a>
-                        <button type="button" onclick="login()" className="btn btn-primary w-100">Iniciar Sesión</button>
+                        <Link to={"/registro"} class="w-100 text-decoration-none" href="#">¿Eres Nuevo? Registrate aquí</Link>
+                        <Link to={"/productos"}><button type="button" onclick="login()" className="btn btn-primary w-100">Iniciar Sesión</button></Link>
                       </form>
                 </div>
             </div>

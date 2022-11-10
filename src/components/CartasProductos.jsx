@@ -1,37 +1,61 @@
+import "./styles/productos.css"
 function Cartas(){
     return (
     // <!--Cartas Productos-->
-    <div>
-    <h2  style="text-align: center;">Productos</h2>
-    <span class="mesajeVacio" text="${mensaje}"></span>
-    <div class="conedortarjetas">
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="'nav-item ' +${activadoVerduras == true ? 'active' : ''}">
-          <a href="/verduras" class="nav-link " aria-current="page">
+    <div className="fondo-blanco">
+    <h2 className="letra-18 centrar">Productos</h2>
+    <span className="mesajeVacio" text=""></span>
+    <div className="conedortarjetas">
+      <ul className="nav nav-pills flex-column mb-auto">
+        <li className="">
+          <a href="/verduras" className="nav-link filtro" aria-current="page">
             Verduras
           </a>
         </li>
-        <li class="'nav-item ' +${activadoFrutas == true ? 'active' : ''}">
-          <a href="/frutas" class="nav-link " aria-current="page">
+        <li className="">
+          <a href="/frutas" className="nav-link filtro" aria-current="page">
             Frutas
           </a>
         </li>
-        <li class="'nav-item ' +${activadoGranos == true ? 'active' : ''}">
-          <a href="/granos" class="nav-link " aria-current="page">
+        <li className="">
+          <a href="/granos" className="nav-link filtro" aria-current="page">
             Granos
           </a>
         </li>
       </ul>
-      <div class="tarjetas">
-        
 
-          <div class="card" style="width: 18rem;" if="${!productos.isEmpty()}" each="producto: ${productos}">
-            <img class="card-img-top" alt="..."></img>
-            <div class="card-body">
-              <span class="product-price" text="${producto.getPrecioKilo}"></span>
-              <p class="card-description" text="${producto.getNombre}"></p>
+      <div className="tarjetas">
+          <div className="card letra-18"  if="" each="">
+            <img className="card-img-top" alt="..."></img>
+            <div className="card-body">
+              <span className="product-price" text=""></span>
+              <p className="card-description" text=""></p>
             </div>
-            <button class="addToCart" onclick="addToCart([[${producto.idProducto}]]);"><i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+          </div>
+          <div className="card letra-18"  if="" each="">
+            <img className="card-img-top" alt="..."></img>
+            <div className="card-body">
+              <span className="product-price" text=""></span>
+              <p className="card-description" text=""></p>
+            </div>
+            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+          </div>
+          <div className="card letra-18"  if="" each="">
+            <img className="card-img-top" alt="..."></img>
+            <div className="card-body">
+              <span className="product-price" text=""></span>
+              <p className="card-description" text=""></p>
+            </div>
+            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+          </div>
+          <div className="card letra-18"  if="" each="">
+            <img className="card-img-top" alt="..."></img>
+            <div className="card-body">
+              <span className="product-price" text=""></span>
+              <p className="card-description" text=""></p>
+            </div>
+            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './css/App.css';
 //Componentes
 import CarruselIngreso from './components/CarruselIngreso';
@@ -7,8 +6,8 @@ import Nosotros from './components/Nosotros';
 import Inicio from './components/Inicio';
 import Contactenos from './components/Contactenos';
 import Registro from './components/Registro';
-import {Route, Routes} from 'react-router-dom';
 import Productos from './components/Productos';
+import {Route, Routes} from 'react-router-dom';
 
 
 function App() {

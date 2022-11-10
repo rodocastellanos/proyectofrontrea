@@ -1,10 +1,10 @@
-import Navbar from "./Navbar"
 import Cartas from "./CartasProductos"
+import Navegacion from "./Navbarentrada";
 function Productos(){
     return (
         <div>
-            <Navbar></Navbar>
-            <Cartas></Cartas>
+            <Navegacion/>
+            <Cartas/>
         </div>
     )
 }
