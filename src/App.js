@@ -7,6 +7,7 @@ import Inicio from './components/Inicio';
 import Contactenos from './components/Contactenos';
 import Registro from './components/Registro';
 import Productos from './components/Productos';
+import Carrito from './components/Carrito';
 import {Route, Routes} from 'react-router-dom';
 
 
@@ -23,6 +24,7 @@ function App() {
     <Route path="/Contactenos" element={<Contactenos/>}/>
     <Route path="/Registro" element={<Registro/>}/>
     <Route path="/Productos" element={<Productos/>}/>
+    <Route path="/Carrito" element={<Carrito/>}/>
     </Routes>
   </div>
   );

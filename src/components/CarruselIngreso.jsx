@@ -2,7 +2,6 @@ import slider1 from "./slider1.png";
 import slider2 from "./slider2.png";
 import slider3 from "./slider3.png";
 import './styles/iniciostyle.css'
-import {Link} from "react-router-dom";
 
 function CarruselIngreso(props){
     return (
@@ -46,15 +45,15 @@ function CarruselIngreso(props){
                           <label for="exampleInputEmail1" className="form-label font-weight-bold">Usuario</label>
                           <input type="text" className="form-control border-0" placeholder="Ingresa tu usario" id="exampleInputEmail1" aria-describedby="emailHelp" required></input>
                         </div>
-                        <div class="mb-3"
+                        <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label font-weight-bold">Contraseña</label>
                           <input type="password" class="form-control border-0" placeholder="Ingresa tu contraseña" id="exampleInputPassword1" required></input>
-                          <input type="text" class="form-control border-0" placeholder="Ingresa tu usario" id="exampleInputEmail1" aria-describedby="emailHelp" required></input>
+                          {/* <input type="text" class="form-control border-0" placeholder="Ingresa tu usario" id="exampleInputEmail1" aria-describedby="emailHelp" required></input> */}
                         </div>
                         <div id="errorBox">
                         </div>
-                        <Link to={"/registro"} class="w-100 text-decoration-none" href="#">¿Eres Nuevo? Registrate aquí</Link>
-                        <Link to={"/productos"}><button type="button" onclick="login()" className="btn btn-primary w-100">Iniciar Sesión</button></Link>
+                        <a class="w-100 text-decoration-none" href="/registro">¿Eres Nuevo? Registrate aquí</a>
+                        <button type="button" onclick="login()" className="btn btn-primary w-100">Iniciar Sesión</button>
                       </form>
                 </div>
             </div>
