@@ -48,7 +48,10 @@ function CarruselIngreso(props){
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label font-weight-bold">Contraseña</label>
                           <input type="password" class="form-control border-0" placeholder="Ingresa tu contraseña" id="exampleInputPassword1" required></input>
+<<<<<<< main
                           {/* <input type="text" class="form-control border-0" placeholder="Ingresa tu usario" id="exampleInputEmail1" aria-describedby="emailHelp" required></input> */}
+=======
+>>>>>>> RodolfoC
                         </div>
                         <div id="errorBox">
                         </div>
