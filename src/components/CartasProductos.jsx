@@ -1,5 +1,8 @@
 import "./styles/productos.css"
-function Cartas(){
+
+
+function Cartas({setCount}, {count}){
+
     return (
     // <!--Cartas Productos-->
     <div className="fondo-blanco">
@@ -31,7 +34,7 @@ function Cartas(){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
           <div className="card letra-18"  if="" each="">
             <img className="card-img-top" alt="..."></img>
@@ -39,7 +42,7 @@ function Cartas(){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
           <div className="card letra-18"  if="" each="">
             <img className="card-img-top" alt="..."></img>
@@ -47,7 +50,7 @@ function Cartas(){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
           <div className="card letra-18"  if="" each="">
             <img className="card-img-top" alt="..."></img>
@@ -55,12 +58,14 @@ function Cartas(){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onclick=""><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
       </div>
     </div>
     </div>
     )
+
 }
+
 
 export default Cartas;

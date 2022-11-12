@@ -1,10 +1,8 @@
 import Cartas from "./CartasProductos"
-import Navegacion from "./Navbarentrada";
-function Productos(){
+function Productos({setCount}, {count}){
     return (
         <div>
-            <Navegacion/>
-            <Cartas/>
+            <Cartas setCount={setCount} count={count}/>
         </div>
     )
 }

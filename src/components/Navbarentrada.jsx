@@ -1,4 +1,5 @@
-function Navegacion(){
+import {Link} from "react-router-dom";
+function Navegacion({count}){
     return (
         <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
@@ -9,14 +10,20 @@ function Navegacion(){
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">Salir</a>
+                <Link to={"/"} className="nav-link" aria-current="page" href="#">Login</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/carrito">Carrito</a>
+                <Link to={"/carrito"} className="nav-link" href="#">Carrito {count}</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/productos">Productos</a>
-            </li>
+                <Link to={"/productos"} className="nav-link" href="#">Productos</Link>
+              </li>
+              <li className="nav-item">
+              <Link to={"/nosotros"} className="nav-link" href="#"> Nosotros </Link>
+              </li>
+              <li className="nav-item">
+              <Link to={"/contactenos"} className="nav-link" href="#">Contactenos</Link>
+              </li>
             </ul>
           </div>
         </div>
