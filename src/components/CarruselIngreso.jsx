@@ -52,7 +52,7 @@ function CarruselIngreso(props){
                         </div>
                         <div id="errorBox">
                         </div>
-                        <a class="w-100 text-decoration-none" href="/registro">¿Eres Nuevo? Registrate aquí</a>
+                        <a class="w-100 text-decoration-none" href="/registro">¿Eres Nuevo? Registrate aqui</a>
                         <button type="button" onclick="login()" className="btn btn-primary w-100">Iniciar Sesión</button>
                       </form>
                 </div>
