@@ -13,10 +13,10 @@ import React, { useState } from "react"
 
 
 function App() {
-  let [count, setCount] = useState(0);
-  // let onclickfunc = function () {
-  //     setCount(count + 1);
-  //   };
+  var [count, setCount] = useState(0);
+  let onclickfunc = () => {
+      setCount(count + 1);
+    };
   return (
 <div>
     <div className='APP'>
@@ -28,7 +28,7 @@ function App() {
     <Route path="/Inicio" element={<Inicio/>}/>
     <Route path="/Contactenos" element={<Contactenos/>}/>
     <Route path="/Registro" element={<Registro/>}/>
-    <Route path="/Productos" element={<Productos setCount={setCount} count={count}/>}/>
+    <Route path="/Productos" element={<Productos onclickfunc={onclickfunc}/>}/>
     <Route path="/Carrito" element={<Carrito/>}/>
     </Routes>
   </div>
