@@ -1,8 +1,8 @@
 import Cartas from "./CartasProductos"
-function Productos({setCount}, {count}){
+function Productos({onclickfunc}){
     return (
         <div>
-            <Cartas setCount={setCount} count={count}/>
+            <Cartas onclickfunc={onclickfunc}/>
         </div>
     )
 }

@@ -1,8 +1,7 @@
 import "./styles/productos.css"
 
 
-function Cartas({setCount}, {count}){
-
+function Cartas({onclickfunc}){
     return (
     // <!--Cartas Productos-->
     <div className="fondo-blanco">
@@ -34,7 +33,7 @@ function Cartas({setCount}, {count}){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
           <div className="card letra-18"  if="" each="">
             <img className="card-img-top" alt="..."></img>
@@ -42,7 +41,7 @@ function Cartas({setCount}, {count}){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
           <div className="card letra-18"  if="" each="">
             <img className="card-img-top" alt="..."></img>
@@ -50,7 +49,7 @@ function Cartas({setCount}, {count}){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
           <div className="card letra-18"  if="" each="">
             <img className="card-img-top" alt="..."></img>
@@ -58,7 +57,7 @@ function Cartas({setCount}, {count}){
               <span className="product-price" text=""></span>
               <p className="card-description" text=""></p>
             </div>
-            <button className="addToCart" onClick={() => setCount(count + 1)}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
           </div>
       </div>
     </div>
