@@ -1,5 +1,4 @@
 import Columnas from "./ColumnasCarrito";
-import Modal from "./modal";
 import StartTotal from "./StartTotal";
 import "./styles/carrito.css";
 import "./styles/indexstyle.css";
@@ -10,7 +9,7 @@ function Carrito(){
             <div class="container">
                 <Columnas></Columnas>
                 <StartTotal></StartTotal>
-                <Modal></Modal>
+                {/* <Modal></Modal> */}
             </div>
         </section>
     )

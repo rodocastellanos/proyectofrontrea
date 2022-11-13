@@ -1,4 +1,5 @@
 import "./styles/productos.css"
+import Buscador from "./buscador";
 
 
 function Cartas({onclickfunc}){
@@ -7,6 +8,7 @@ function Cartas({onclickfunc}){
     <div className="fondo-blanco">
     <h2 className="letra-18 centrar">Productos</h2>
     <span className="mesajeVacio" text=""></span>
+    <Buscador></Buscador>
     <div className="conedortarjetas">
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="">
