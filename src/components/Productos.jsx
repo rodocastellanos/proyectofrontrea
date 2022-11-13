@@ -1,10 +1,8 @@
 import Cartas from "./CartasProductos"
-import Navegacion from "./Navbarentrada";
-function Productos(){
+function Productos({onclickfunc}){
     return (
         <div>
-            <Navegacion/>
-            <Cartas/>
+            <Cartas onclickfunc={onclickfunc}/>
         </div>
     )
 }

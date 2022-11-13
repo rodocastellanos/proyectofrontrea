@@ -1,6 +1,7 @@
 import slider1 from "./slider1.png";
 import slider2 from "./slider2.png";
 import slider3 from "./slider3.png";
+import {Link} from "react-router-dom";
 import './styles/iniciostyle.css'
 
 function CarruselIngreso(props){
@@ -48,14 +49,11 @@ function CarruselIngreso(props){
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label font-weight-bold">Contraseña</label>
                           <input type="password" class="form-control border-0" placeholder="Ingresa tu contraseña" id="exampleInputPassword1" required></input>
-<<<<<<< main
                           {/* <input type="text" class="form-control border-0" placeholder="Ingresa tu usario" id="exampleInputEmail1" aria-describedby="emailHelp" required></input> */}
-=======
->>>>>>> RodolfoC
                         </div>
                         <div id="errorBox">
                         </div>
-                        <a class="w-100 text-decoration-none" href="/registro">¿Eres Nuevo? Registrate aquí</a>
+                        <Link to={"/registro"} class="w-100 text-decoration-none" href="#">¿Eres Nuevo? Registrate aqui</Link>
                         <button type="button" onclick="login()" className="btn btn-primary w-100">Iniciar Sesión</button>
                       </form>
                 </div>
