@@ -20,7 +20,7 @@ body{
 
 }
 .form-register h4{
-    color: #24303c;
+    color: #062b0f;
     font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
@@ -34,13 +34,13 @@ body{
     border: 1px solid #747b89;
     font-family: "calibri";
     font-size: 18px;
-    color: #24303c;
+    color: #062b0f;
     text-align: center;
 }
 
 .form-register .botons {
     width: 100%;
-    background: #363d4c;
+    background: #073613;
     border: none;
     padding: 12px;
     color: white;
