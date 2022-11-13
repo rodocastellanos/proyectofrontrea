@@ -1,10 +1,11 @@
 .root{
-    --dark: #16191c;
+    --dark: #062b0f;
     --dark-x: #1e2126;
     --light: #ffffff;
 }
 body{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'DM Sans',
+        sans-serif;
 }
 
 .bd-dark{
@@ -33,4 +34,29 @@ h1{
 
 .tituloh1{
     color: white;
+    margin-bottom: 10px;
+}
+
+.btn-sesion{
+    background-color: rgb(115, 206, 139);
+}
+
+.regis{
+    color: #ffffff;
+}
+.regis:hover {
+    color: rgb(81, 179, 81);
+}
+.btn-sesion:hover{
+    background-color: rgb(81, 179, 81);
+}
+.card{
+background: rgb(106, 138, 113);
+    background: linear-gradient(225deg, rgba(106, 138, 113, 1) 0%, rgba(93, 156, 135, 1) 100%);
+}
+.nav-link{
+    color: #062b0f;
+}
+.nav-link:hover {
+    color: rgb(81, 179, 81);
 }
