@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom";
+import './styles/navegacion.css'
+
 function Navegacion({count}){
     return (
         <nav className="navbar navbar-expand-lg bg-light">
@@ -13,7 +15,7 @@ function Navegacion({count}){
                 <Link to={"/"} className="nav-link" aria-current="page" href="#">Login</Link>
               </li>
               <li className="nav-item">
-                <Link to={"/carrito"} className="nav-link" href="#">Carrito {count}</Link>
+                <Link to={"/carrito"} className="nav-link" href="#"><div className="carro">Carrito <span className="circuloContador">{count}</span></div></Link>
               </li>
               <li className="nav-item">
                 <Link to={"/productos"} className="nav-link" href="#">Productos</Link>

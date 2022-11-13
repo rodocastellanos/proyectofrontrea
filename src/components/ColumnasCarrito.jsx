@@ -18,7 +18,7 @@ function Columnas(){
                 </div>
                 <div className="col-4">
                     <div className="shopping-cart-header">
-                        <h6 className="negritaName">Cantidad</h6>
+                        <h6 className="negritaName negrita">Cantidad</h6>
                     </div>
                 </div>
             </div>

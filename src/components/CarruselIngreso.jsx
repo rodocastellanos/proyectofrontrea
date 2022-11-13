@@ -40,7 +40,7 @@ function CarruselIngreso(props){
                       
                 </div>
                 <div className="px-lg-5 py-lg-2 p-4 w-100">
-                    <h1 className=" font-weight-bold nb-4" >Bienvenido</h1>
+                    <h1 className=" font-weight-bold nb-4 tituloh1" >Bienvenido</h1>
                     <form method="post">
                         <div className="mb-3">
                           <label for="exampleInputEmail1" className="form-label font-weight-bold">Usuario</label>
