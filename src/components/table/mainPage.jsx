@@ -1,13 +1,13 @@
+import Table from "./Table";
+import CreateButton from "../table/CreateBotton";
+import SearchBar from "../table/SearchBar";
 import { useState } from "react";
-import CreateButton from "./createButton";
-import SearchBar from "./searchBar";
-import Table from "./table";
 
-function MAinPage(props) {
+function MainPage(props) {
     const [dataForTable, setDataforTable] = useState(props.data);
     return (
         <div>
-            <div className="d-flex text-center mx-auto">
+            <div className="d-flex text-center mx-auto w-100">
                 <CreateButton path={props.path} />
                 <SearchBar
                     data={props.data}
@@ -26,4 +26,15 @@ function MAinPage(props) {
         </div>
     );
 }
-export default MAinPage;
+export default MainPage;
+
+{
+    /* <Table
+    data={datosTabla}
+    path={"/usuarios"}
+    name={"Tabla de Usuarios"}
+    columns={["id", "firstName", "email", "username", "password"]}
+    columnsAlias={["ID", "Nombre", "Correo", "Usuario", "Contrasena"]}
+    tools={["update", "delete"]}
+/>; */
+}

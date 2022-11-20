@@ -1,7 +1,13 @@
-import Body from "./body";
-import Header from "./header";
+import Header from "./Header";
+import Body from "./Body";
 
 function Table(props) {
+    //props.data={datosTabla}
+    //props.name={"Tabla de Usuarios"}
+    //props.columns={["id", "firstName", "email", "username", "password"]}
+    //props.columnsAlias={[]}
+    //props.tools={["update", "delete"]}
+    //props.path
     return (
         <div className="mx-5">
             <table class="table">
@@ -17,4 +23,5 @@ function Table(props) {
         </div>
     );
 }
+
 export default Table;

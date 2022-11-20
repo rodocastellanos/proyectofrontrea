@@ -1,17 +1,19 @@
-import getData from "../../js/db";
-import MAinPage from "../table/mainPage";
+//import Table from "../table/Table";
+import { getDataProductos } from "../../js/dbProductos";
+import MainPage from "../table/MainPage";
+//import CreateButton from "../table/CreateBotton";
+//import SearchBar from "../table/SearchBar";
 
 function ProductosIndex(props) {
-    let datosTabla = getData("url", {}, "get", {});
-    console.log(datosTabla);
+    let datosTabla = getDataProductos("url", {}, "get", {});
+    //procesar datos
     return (
-        <div class="App">
+        <div className="App">
             <h3>Productos</h3>
             <p>Bienvenidos a la pagina de administracion de Productos</p>
-
-            <MAinPage
+            <MainPage
                 data={datosTabla}
-                path={"/Productos"}
+                path={"/productos"}
                 name={"Tabla de Productos"}
                 columns={[
                     "id",
@@ -22,16 +24,25 @@ function ProductosIndex(props) {
                     "Imagen",
                 ]}
                 columnsAlias={[
-                    "Codigo",
+                    "ID",
                     "Producto",
                     "Precio",
                     "Proveedor",
                     "Tipo",
-                    "Imagen",
+                    "imagen",
                 ]}
                 tools={["update", "delete"]}
             />
+            {/* <div className="d-flex">
+                <div className="col-6">
+                    <Table />
+                </div>
+                <div className="col-6">
+                    <Table />
+                </div>
+            </div> */}
         </div>
     );
 }
+
 export default ProductosIndex;

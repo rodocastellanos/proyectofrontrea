@@ -1,6 +1,9 @@
-import Row from "./row";
+import Row from "./Row";
 
 function Body(props) {
+    // props.data -> arreglo
+    // props.data[0]
+    //props.path
     return (
         <tbody class="table-group-divider">
             {props.data.map(function (value, index) {
@@ -16,4 +19,5 @@ function Body(props) {
         </tbody>
     );
 }
+
 export default Body;

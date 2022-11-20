@@ -73,8 +73,18 @@ let usuarios = [
     },
 ];
 
-function getData(url, headers, httpMethod, data) {
+function getDataProductos(url, headers, httpMethod, data) {
     return usuarios;
 }
+function getProductos(id) {
+    let result = {};
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].id === id) {
+            result = usuarios[i];
+            break;
+        }
+    }
+    return result;
+}
 
-export default getData;
+export { getDataProductos, getProductos };

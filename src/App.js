@@ -12,6 +12,11 @@ import { Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import Usuarios from "./components/usuarios";
 import ProductosIndex from "./components/productos/index";
+import ActualizarUsuario from "./components/usuarios/actualizarUsuario";
+import CreateUsuario from "./components/usuarios/createUsuario";
+import EliminarUsuario from "./components/usuarios/eliminarUsuario";
+import ActualizarProdcutos from "./components/productos/actualizarProducto";
+import CreateProducto from "./components/productos/createProducto";
 
 function App() {
     var [count, setCount] = useState(0);
@@ -35,8 +40,25 @@ function App() {
                 />
                 <Route path="/Carrito" element={<Carrito />} />
                 <Route path="/usuarios" element={<Usuarios />} />
+                <Route path="/usuarios/registro" element={<CreateUsuario />} />
+                <Route
+                    path="/usuarios/update/:idUsuario"
+                    element={<ActualizarUsuario />}
+                />
+                <Route
+                    path="/usuarios/delete/:idUsuario"
+                    element={<EliminarUsuario />}
+                />
 
                 <Route path="/editarproductos" element={<ProductosIndex />} />
+                <Route
+                    path="/productos/update/:idProdcuto"
+                    element={<ActualizarProdcutos />}
+                />
+                <Route
+                    path="/productos/delete/:idProdcuto"
+                    element={<CreateProducto />}
+                />
             </Routes>
         </div>
     );

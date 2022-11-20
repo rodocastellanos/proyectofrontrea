@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 function SearchBar(props) {
+    //props.data={props.data}
+    //props.columns
+    //props.setDataforTable={setDataforTable}
     const [searchText, setSearchText] = useState("");
 
     let onChangeSearchTextField = function (e) {
@@ -9,6 +12,7 @@ function SearchBar(props) {
         let results = Search(props.data, props.columns, searchText2);
         props.setDataforTable(results);
     };
+
     return (
         <div className="d-flex text-center me-auto">
             <input
@@ -44,7 +48,6 @@ function Search(data, columns, search) {
             }
         });
     });
-
     return results;
 }
 

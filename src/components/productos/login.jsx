@@ -1,7 +1,11 @@
 function LoginView(props) {
     return (
         <div className="w-75 mx-auto">
-            <div class="text-center">
+            <div
+                class="text-center"
+                data-new-gr-c-s-check-loaded="14.1085.0"
+                data-gr-ext-installed=""
+            >
                 <main class="form-signin w-100 m-auto">
                     <form>
                         <img
@@ -31,7 +35,6 @@ function LoginView(props) {
                             />
                             <label for="floatingPassword">Password</label>
                         </div>
-
                         <button
                             class="w-100 btn btn-lg btn-primary my-3"
                             type="button"

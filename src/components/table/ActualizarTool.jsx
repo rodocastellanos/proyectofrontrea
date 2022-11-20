@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import editar from "./editar.png";
+import { Link } from "react-router-dom";
 
-function ActualizarTools(props) {
+function ActualizarTool(props) {
     let url = props.path + "/update/" + props.id;
     return (
         <Link to={url}>
@@ -10,4 +10,4 @@ function ActualizarTools(props) {
     );
 }
 
-export default ActualizarTools;
+export default ActualizarTool;
