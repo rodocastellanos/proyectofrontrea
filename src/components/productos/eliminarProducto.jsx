@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { getUsuario } from "../../js/getData";
 import { estadoPrincipal, setEstadoPrincipal } from "../../js/global";
 
-function EliminarUsuario(props) {
+function EliminarProducto(props) {
     let { idUsuario } = useParams();
     let usuario = getUsuario(idUsuario);
     // setEstadoPrincipal({
@@ -10,7 +10,7 @@ function EliminarUsuario(props) {
     //     auhtenticated: false,
     // });
     return (
-        <div className="col-12 w-75 mx-auto">
+        <div className="col-12 w-75 mx-auto App">
             <h3>Pagina: Eliminar Productos</h3>
             <form>
                 <div class="row g-3">
@@ -112,4 +112,4 @@ function onClickSubmit(e) {
     console.log(e);
 }
 
-export default EliminarUsuario;
+export default EliminarProducto;

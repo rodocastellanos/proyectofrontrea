@@ -17,6 +17,7 @@ import CreateUsuario from "./components/usuarios/createUsuario";
 import EliminarUsuario from "./components/usuarios/eliminarUsuario";
 import ActualizarProdcutos from "./components/productos/actualizarProducto";
 import CreateProducto from "./components/productos/createProducto";
+import EliminarProducto from "./components/productos/eliminarProducto";
 
 function App() {
     var [count, setCount] = useState(0);
@@ -58,6 +59,10 @@ function App() {
                 <Route
                     path="/productos/registro"
                     element={<CreateProducto />}
+                />
+                <Route
+                    path="/productos/delete/:idUsuario"
+                    element={<EliminarProducto />}
                 />
             </Routes>
         </div>
