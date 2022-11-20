@@ -56,7 +56,7 @@ function App() {
                     element={<ActualizarProdcutos />}
                 />
                 <Route
-                    path="/productos/delete/:idProdcuto"
+                    path="/productos/registro"
                     element={<CreateProducto />}
                 />
             </Routes>
