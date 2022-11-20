@@ -37,6 +37,24 @@ function Navegacion({ count }) {
                         </li>
                         <li>
                             <Link
+                                to={"/editarproductos"}
+                                className="nav-link"
+                                href="#"
+                            >
+                                Productos Editar
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to={"/usuarios"}
+                                className="nav-link"
+                                href="#"
+                            >
+                                Usuarios
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
                                 to={"/nosotros"}
                                 className="nav-link"
                                 href="#"
