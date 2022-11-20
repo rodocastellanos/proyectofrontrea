@@ -125,7 +125,7 @@ function CarruselIngreso(props) {
                         </div>
                         <div id="errorBox"></div>
                         <Link
-                            to={"/registro"}
+                            to={"/usuarios/registro"}
                             class="w-100 text-decoration-none regis"
                             href="#"
                         >
