@@ -78,7 +78,7 @@ function EliminarUsuario(props) {
                         />
                     </div>
 
-                    <div class="col-12">
+                    {/* <div class="col-12">
                         <label for="password" class="form-label">
                             Contrasena
                         </label>
@@ -90,7 +90,7 @@ function EliminarUsuario(props) {
                             required={true}
                             readOnly={true}
                         />
-                    </div>
+                    </div> */}
 
                     <hr class="my-4" />
 
