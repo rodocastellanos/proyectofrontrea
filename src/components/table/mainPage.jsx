@@ -1,6 +1,6 @@
 import Table from "./Table";
-import CreateButton from "../table/CreateBotton";
-import SearchBar from "../table/SearchBar";
+import CreateButton from "./CreateBotton";
+import SearchBar from "./SearchBar";
 import { useState } from "react";
 
 function MainPage(props) {
@@ -27,14 +27,3 @@ function MainPage(props) {
     );
 }
 export default MainPage;
-
-{
-    /* <Table
-    data={datosTabla}
-    path={"/usuarios"}
-    name={"Tabla de Usuarios"}
-    columns={["id", "firstName", "email", "username", "password"]}
-    columnsAlias={["ID", "Nombre", "Correo", "Usuario", "Contrasena"]}
-    tools={["update", "delete"]}
-/>; */
-}
