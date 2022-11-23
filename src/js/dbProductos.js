@@ -87,4 +87,15 @@ function getProductos(id) {
     return result;
 }
 
-export { getDataProductos, getProductos };
+function getProductosByTipo(tipo){
+    let result = {};
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].tipo === tipo) {
+            result = usuarios[i];
+            break;
+        }
+    }
+    return result;
+}
+
+export { getDataProductos, getProductos, getProductosByTipo };
