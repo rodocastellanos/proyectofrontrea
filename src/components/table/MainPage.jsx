@@ -1,6 +1,6 @@
 import Table from "./Table";
-import CreateButton from "./CreateBotton";
-import SearchBar from "./SearchBar";
+import CreateButton from "../table/CreateBotton";
+import SearchBar from "../table/SearchBar";
 import { useState } from "react";
 
 function MainPage(props) {

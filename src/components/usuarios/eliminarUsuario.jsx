@@ -1,17 +1,57 @@
-import { useParams } from "react-router-dom";
-import { getUsuario } from "../../js/getData";
-import { estadoPrincipal, setEstadoPrincipal } from "../../js/global";
+import { Await, useParams } from "react-router-dom";
+import { getRequest } from "../../js/getData";
+import backendConfig from "../../config";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function EliminarUsuario(props) {
-    let { idUsuario } = useParams();
-    let usuario = getUsuario(idUsuario);
-    // setEstadoPrincipal({
-    //     name: "N/A - " + estadoPrincipal.name,
-    //     auhtenticated: false,
-    // });
+    let { idUser } = useParams();
+    console.log(idUser);
+    let navigate = useNavigate();
+
+    const [datosTabla, setDatosTabla] = useState({});
+    const [state, setState] = useState("loading");
+    const [error, setError] = useState("");
+
+    useEffect(function () {
+        let promiseData = getRequest(
+            backendConfig.FULL_API_PATH + "usuarios/get/" + idUser,
+            {},
+            "get",
+            {}
+        );
+        promiseData
+            .then(function (response) {
+                console.log(response);
+                setState("loaded");
+                setDatosTabla(response.data);
+            })
+            .catch(function (err) {
+                setState("error");
+                setError(err);
+                console.log(err);
+            });
+    }, []);
+    if (state === "error") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>{error.toString()}</h3>
+            </div>
+        );
+    }
+    if (state === "loading") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>Loading...</h3>
+            </div>
+        );
+    }
+
     return (
         <div className="col-12 w-75 mx-auto App">
-            <h3>Pagina: Eliminar Usuario</h3>
+            <h3>Pagina: Eliminar Usuario </h3>
+
             <form>
                 <div class="row g-3">
                     <div class="">
@@ -21,8 +61,8 @@ function EliminarUsuario(props) {
                         <input
                             type="text"
                             class="form-control"
-                            id="identifier"
-                            defaultValue={usuario.id}
+                            id="id"
+                            defaultValue={idUser}
                             required={true}
                             readOnly={true}
                         />
@@ -37,7 +77,7 @@ function EliminarUsuario(props) {
                             class="form-control"
                             id="firstName"
                             placeholder="Nombre de la persona"
-                            defaultValue={usuario.firstName}
+                            defaultValue={datosTabla.firstName}
                             required={true}
                             minLength={4}
                             readOnly={true}
@@ -55,7 +95,7 @@ function EliminarUsuario(props) {
                                 class="form-control"
                                 id="username"
                                 placeholder="Username"
-                                defaultValue={usuario.username}
+                                defaultValue={datosTabla.username}
                                 required={true}
                                 minLength={4}
                                 readOnly={true}
@@ -72,32 +112,20 @@ function EliminarUsuario(props) {
                             class="form-control"
                             id="email"
                             placeholder="ejemplo@dominio.com"
-                            defaultValue={usuario.email}
+                            defaultValue={datosTabla.email}
                             required={true}
                             readOnly={true}
                         />
                     </div>
 
-                    {/* <div class="col-12">
-                        <label for="password" class="form-label">
-                            Contrasena
-                        </label>
-                        <input
-                            type={"password"}
-                            class="form-control"
-                            id="password"
-                            defaultValue={usuario.password}
-                            required={true}
-                            readOnly={true}
-                        />
-                    </div> */}
-
                     <hr class="my-4" />
 
                     <button
                         class="w-100 btn btn-outline-danger btn-lg"
-                        type="submit"
-                        onClick={onClickSubmit}
+                        type="button"
+                        onClick={() => {
+                            onClickSubmit(navigate);
+                        }}
                     >
                         Eliminar
                     </button>
@@ -107,9 +135,25 @@ function EliminarUsuario(props) {
     );
 }
 
-function onClickSubmit(e) {
-    e.preventDefault();
-    console.log(e);
+function onClickSubmit(navigate) {
+    //capturamos los datos del formulario
+    let idUser = document.getElementById("id").value;
+    let url = backendConfig.FULL_API_PATH + "usuarios/delete/" + idUser;
+    let promesaCreate = getRequest(url, {}, "delete", {});
+    //enviamos la peticion
+    promesaCreate
+        .then(function (res) {
+            if (res.status === 200) {
+                //redireccionar
+                console.log("Usuario fue eliminado");
+                navigate("/usuarios");
+            }
+            console.log(res);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    //segun el resultado, mostramos errores O cargamos la pagina de usuarios
 }
 
 export default EliminarUsuario;

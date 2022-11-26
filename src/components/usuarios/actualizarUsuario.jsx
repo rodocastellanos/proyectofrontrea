@@ -1,9 +1,52 @@
 import { useParams } from "react-router-dom";
-import { getUsuario } from "../../js/getData";
+import { getRequest } from "../../js/getData";
+import backendConfig from "../../config";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function ActualizarUsuario(props) {
-    let { idUsuario } = useParams();
-    let usuario = getUsuario(idUsuario);
+    let { idUser } = useParams();
+    console.log(idUser);
+    let navigate = useNavigate();
+
+    const [datosTabla, setDatosTabla] = useState({});
+    const [state, setState] = useState("loading");
+    const [error, setError] = useState("");
+
+    useEffect(function () {
+        let promiseData = getRequest(
+            backendConfig.FULL_API_PATH + "usuarios/get/" + idUser,
+            {},
+            "get",
+            {}
+        );
+        promiseData
+            .then(function (response) {
+                console.log(response);
+                setState("loaded");
+                setDatosTabla(response.data);
+            })
+            .catch(function (err) {
+                setState("error");
+                setError(err);
+                console.log(err);
+            });
+    }, []);
+    if (state === "error") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>{error.toString()}</h3>
+            </div>
+        );
+    }
+    if (state === "loading") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>Loading...</h3>
+            </div>
+        );
+    }
     return (
         <div className="col-12 w-75 mx-auto App">
             <h3>Pagina: Actualizar Usuario</h3>
@@ -16,8 +59,8 @@ function ActualizarUsuario(props) {
                         <input
                             type="text"
                             class="form-control"
-                            id="identifier"
-                            defaultValue={usuario.id}
+                            id="id"
+                            defaultValue={idUser}
                             required={true}
                             readOnly={true}
                         />
@@ -32,7 +75,21 @@ function ActualizarUsuario(props) {
                             class="form-control"
                             id="firstName"
                             placeholder="Nombre de la persona"
-                            defaultValue={usuario.firstName}
+                            defaultValue={datosTabla.firstName}
+                            required={true}
+                            minLength={4}
+                        />
+                    </div>
+                    <div class="col-12">
+                        <label for="lastName" class="form-label">
+                            Apellidos de la Persona
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="lastName"
+                            placeholder="Apellidos"
+                            defaultValue={datosTabla.lastName}
                             required={true}
                             minLength={4}
                         />
@@ -49,7 +106,7 @@ function ActualizarUsuario(props) {
                                 class="form-control"
                                 id="username"
                                 placeholder="Username"
-                                defaultValue={usuario.username}
+                                defaultValue={datosTabla.username}
                                 required={true}
                                 minLength={4}
                             />
@@ -65,7 +122,7 @@ function ActualizarUsuario(props) {
                             class="form-control"
                             id="email"
                             placeholder="ejemplo@dominio.com"
-                            defaultValue={usuario.email}
+                            defaultValue={datosTabla.email}
                             required={true}
                         />
                     </div>
@@ -78,7 +135,7 @@ function ActualizarUsuario(props) {
                             type={"password"}
                             class="form-control"
                             id="password"
-                            defaultValue={usuario.password}
+                            defaultValue={datosTabla.password}
                             required={true}
                         />
                     </div>
@@ -91,8 +148,22 @@ function ActualizarUsuario(props) {
                             type={"password"}
                             class="form-control"
                             id="password2"
-                            defaultValue=""
+                            defaultValue={datosTabla.password}
                             required={true}
+                        />
+                    </div>
+                    <div class="col-12">
+                        <label for="tipoUsiario" class="form-label">
+                            Tipo Usuario
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="tipoUsuario"
+                            placeholder="Tipo Usuario (admin/user)"
+                            defaultValue={datosTabla.tipoUsuario}
+                            required={true}
+                            minLength={4}
                         />
                     </div>
 
@@ -100,10 +171,12 @@ function ActualizarUsuario(props) {
 
                     <button
                         class="w-100 btn btn-primary btn-lg"
-                        type="submit"
-                        onClick={onClickSubmit}
+                        type="button"
+                        onClick={() => {
+                            onClickSubmit(navigate);
+                        }}
                     >
-                        Continue to checkout
+                        Actualice Usuario
                     </button>
                 </div>
             </form>
@@ -111,8 +184,41 @@ function ActualizarUsuario(props) {
     );
 }
 
-function onClickSubmit(e) {
-    console.log(e);
+function onClickSubmit(navigate) {
+    //capturamos los datos del formulario
+    let _id = document.getElementById("id").value;
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let tipoUsuario = document.getElementById("tipoUsuario").value;
+    //contruimos la peticion
+    //construimos el body
+    let bodyData = {
+        _id,
+        firstName,
+        lastName,
+        username,
+        email,
+        password,
+        tipoUsuario,
+    };
+    let url = backendConfig.FULL_API_PATH + "usuarios/update/" + _id;
+    let promesaCreate = getRequest(url, {}, "post", bodyData);
+    //enviamos la peticion
+    promesaCreate
+        .then(function (res) {
+            if (res.status < 300) {
+                //redireccionar
+                console.log("Usuario creado");
+                navigate("/usuarios");
+            }
+            console.log(res);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    //segun el resultado, mostramos errores O cargamos la pagina de usuarios
 }
-
 export default ActualizarUsuario;
