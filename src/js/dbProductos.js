@@ -1,4 +1,4 @@
-let productos = [
+let usuarios = [
     {
         id: 1,
         Producto: "Tomate",
@@ -74,17 +74,30 @@ let productos = [
 ];
 
 function getDataProductos(url, headers, httpMethod, data) {
-    return productos;
+    return usuarios;
 }
 function getProductos(id) {
     let result = {};
-    for (let i = 0; i < productos.length; i++) {
-        if (productos[i].id === id) {
-            result = productos[i];
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].id === id) {
+            result = usuarios[i];
             break;
         }
     }
     return result;
 }
 
-export { getDataProductos, getProductos };
+function getProductosByTipo(tipo){
+    let result = {};
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].tipo === tipo) {
+            result = usuarios[i];
+            break;
+        }
+    }
+    return result;
+}
+
+export { getDataProductos, getProductos, getProductosByTipo };
+
+
