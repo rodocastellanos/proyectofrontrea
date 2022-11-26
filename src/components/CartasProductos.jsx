@@ -1,8 +1,50 @@
 import "./styles/productos.css"
 import Buscador from "./buscador";
+import { getRequest } from "../js/dbProductos.js";
+import React, { useState } from "react";
+import backendConfig from "../config.js";
+import { useEffect } from "react";
+//import { loadData } from "../../js/getData";
 
 
 function Cartas({onclickfunc}){
+    const [datosTabla, setDatosTabla] = useState({});
+    const [state, setState] = useState("loading");
+    const [error, setError] = useState("");
+
+    useEffect(function () {
+        let promiseData = getRequest(
+            backendConfig.FULL_API_PATH + "productos/all",
+            {},
+            "get",
+            {}
+        );
+        promiseData
+            .then(function (response) {
+                console.log(response);
+                setState("loaded");
+                setDatosTabla(response.data);
+            })
+            .catch(function (err) {
+                setState("error");
+                setError(err);
+                console.log(err);
+            });
+    }, []);
+    if (state === "error") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>{error.toString()}</h3>
+            </div>
+        );
+    }
+    if (state === "loading") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>Loading...</h3>
+            </div>
+        );
+    }
     return (
     // <!--Cartas Productos-->
     <div className="fondo-blanco">
@@ -29,38 +71,19 @@ function Cartas({onclickfunc}){
       </ul>
 
       <div className="tarjetas">
-          <div className="card letra-18"  if="" each="">
-            <img className="card-img-top" alt="..."></img>
-            <div className="card-body">
-              <span className="product-price" text=""></span>
-              <p className="card-description" text=""></p>
-            </div>
-            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
-          </div>
-          <div className="card letra-18"  if="" each="">
-            <img className="card-img-top" alt="..."></img>
-            <div className="card-body">
-              <span className="product-price" text=""></span>
-              <p className="card-description" text=""></p>
-            </div>
-            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
-          </div>
-          <div className="card letra-18"  if="" each="">
-            <img className="card-img-top" alt="..."></img>
-            <div className="card-body">
-              <span className="product-price" text=""></span>
-              <p className="card-description" text=""></p>
-            </div>
-            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
-          </div>
-          <div className="card letra-18"  if="" each="">
-            <img className="card-img-top" alt="..."></img>
-            <div className="card-body">
-              <span className="product-price" text=""></span>
-              <p className="card-description" text=""></p>
-            </div>
-            <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
-          </div>
+            {datosTabla.map(function (value, index){
+              return (
+                <div className="card letra-18"  if="" each="">
+                  <img src={value.Imagen} className="card-img-top" alt="..."></img>
+                  <div className="card-body">
+                    <span className="product-price" text="">$ {value.precio}</span><br />
+                    <span className="tituloProducto">{value.Producto}</span>
+                  </div>
+                  <button className="addToCart" onClick={onclickfunc}><i className="fa-sharp fa-solid fa-cart-shopping">Agregar Al Carrito</i></button>
+                </div>
+              )
+            })}
+          
       </div>
     </div>
     </div>

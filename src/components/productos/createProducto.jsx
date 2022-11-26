@@ -1,23 +1,15 @@
+import { getRequest } from "../../js/dbProductos";
+import backendConfig from "../../config";
+import { useNavigate } from "react-router-dom";
+
 function CreateProducto(props) {
+    let navigate = useNavigate();
     return (
         <div className="col-12 w-75 mx-auto App">
             <h3>Pagina: Crear Productos</h3>
             <form>
                 <div class="row g-3">
-                    <div class="">
-                        <label for="identifier" class="form-label">
-                            Id
-                        </label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="identifier"
-                            required={true}
-                            readOnly={true}
-                        />
-                    </div>
-
-                    <div class="">
+                    <div class="col-12">
                         <label for="Producto" class="form-label">
                             Nombre del producto
                         </label>
@@ -61,7 +53,7 @@ function CreateProducto(props) {
                     </div>
 
                     <div class="col-12">
-                        <label for="text" class="form-label">
+                        <label for="Tipo" class="form-label">
                             Tipo de producto
                         </label>
                         <input
@@ -90,8 +82,10 @@ function CreateProducto(props) {
 
                     <button
                         class="w-100 btn btn-primary btn-lg"
-                        type="submit"
-                        onClick={onClickSubmit}
+                        type="button"
+                        onClick={() => {
+                            onClickSubmit(navigate);
+                        }}
                     >
                         Continue to checkout
                     </button>
@@ -101,8 +95,39 @@ function CreateProducto(props) {
     );
 }
 
-function onClickSubmit(e) {
-    console.log(e);
+function onClickSubmit(navigate) {
+    //capturamos los datos del formulario
+    let Producto = document.getElementById("Prodcucto").value;
+    let precio = document.getElementById("precio").value;
+    let Proveedor = document.getElementById("Proveedor").value;
+    let Tipo = document.getElementById("Tipo").value;
+    let Imagen = document.getElementById("Imagen").value;
+    //contruimos la peticion
+    //construimos el body
+    let bodyData = {
+        Producto,
+        precio,
+        Proveedor,
+        Tipo,
+        Imagen
+    };
+    let url = backendConfig.FULL_API_PATH + "productos/create";
+    let promesaCreate = getRequest(url, {}, "post", bodyData);
+    //enviamos la peticion
+    promesaCreate
+        .then(function (res) {
+            if (res.status < 300) {
+                //redireccionar
+                console.log("Producto creado");
+                navigate("/productos");
+                // alert("tal")
+            }
+            console.log(res);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    //segun el resultado, mostramos errores O cargamos la pagina de usuarios
 }
 
 export default CreateProducto;

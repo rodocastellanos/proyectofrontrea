@@ -28,7 +28,7 @@ function Navegacion({ count }) {
                         </li>
                         <li>
                             <Link
-                                to={"/productos"}
+                                to={"/productosVenta"}
                                 className="nav-link"
                                 href="#"
                             >
@@ -37,7 +37,7 @@ function Navegacion({ count }) {
                         </li>
                         <li>
                             <Link
-                                to={"/editarproductos"}
+                                to={"/productos"}
                                 className="nav-link"
                                 href="#"
                             >
