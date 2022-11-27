@@ -1,40 +1,51 @@
-//import Table from "../table/Table";
-import { getData } from "../../js/getData";
-import MainPage from "../table/MainPage";
-//import CreateButton from "../table/CreateBotton";
-//import SearchBar from "../table/SearchBar";
+import { getRequest } from "../../js/getData";
+import React, { useState } from "react";
+import backendConfig from "../../config";
+import { useEffect } from "react";
+//import { loadData } from "../../js/getData";
+import BodyIndex from "../table/BodyIndex";
 
 function UsuariosIndex(props) {
-    let datosTabla = getData("url", {}, "get", {});
+    //let data = loadData();
+    const [datosTabla, setDatosTabla] = useState({});
+    const [state, setState] = useState("loading");
+    const [error, setError] = useState("");
+
+    useEffect(function () {
+        let promiseData = getRequest(
+            backendConfig.FULL_API_PATH + "usuarios/all",
+            {},
+            "get",
+            {}
+        );
+        promiseData
+            .then(function (response) {
+                console.log(response);
+                setState("loaded");
+                setDatosTabla(response.data);
+            })
+            .catch(function (err) {
+                setState("error");
+                setError(err);
+                console.log(err);
+            });
+    }, []);
+    if (state === "error") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>{error.toString()}</h3>
+            </div>
+        );
+    }
+    if (state === "loading") {
+        return (
+            <div className="mx-3 d.flex">
+                <h3>Loading...</h3>
+            </div>
+        );
+    }
+    return <BodyIndex datosTabla={datosTabla} />;
     //procesar datos
-    return (
-        <div className="App">
-            <h3>Usuarios</h3>
-            <p>Bienvenidos a la pagina de administracion de usuarios</p>
-            <MainPage
-                data={datosTabla}
-                path={"/usuarios"}
-                name={"Tabla de Usuarios"}
-                columns={["id", "firstName", "email", "username", "password"]}
-                columnsAlias={[
-                    "ID",
-                    "Nombre",
-                    "Correo",
-                    "Usuario",
-                    "Contrasena",
-                ]}
-                tools={["update", "delete"]}
-            />
-            {/* <div className="d-flex">
-                <div className="col-6">
-                    <Table />
-                </div>
-                <div className="col-6">
-                    <Table />
-                </div>
-            </div> */}
-        </div>
-    );
 }
 
 export default UsuariosIndex;

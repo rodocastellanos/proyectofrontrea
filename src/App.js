@@ -41,19 +41,19 @@ function App() {
                 />
                 <Route path="/Carrito" element={<Carrito />} />
                 <Route path="/usuarios" element={<Usuarios />} />
-                <Route path="/usuarios/registro" element={<CreateUsuario />} />
+                <Route path="/usuarios/create" element={<CreateUsuario />} />
                 <Route
-                    path="/usuarios/update/:idUsuario"
+                    path="/usuarios/update/:idUser"
                     element={<ActualizarUsuario />}
                 />
                 <Route
-                    path="/usuarios/delete/:idUsuario"
+                    path="/usuarios/delete/:idUser"
                     element={<EliminarUsuario />}
                 />
 
                 <Route path="/editarproductos" element={<ProductosIndex />} />
                 <Route
-                    path="/productos/update/:idProdcuto"
+                    path="/productos/update/:idProducto"
                     element={<ActualizarProdcutos />}
                 />
                 <Route
@@ -61,7 +61,7 @@ function App() {
                     element={<CreateProducto />}
                 />
                 <Route
-                    path="/productos/delete/:idUsuario"
+                    path="/productos/delete/:idProducto"
                     element={<EliminarProducto />}
                 />
             </Routes>
