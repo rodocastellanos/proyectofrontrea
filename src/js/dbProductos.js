@@ -1,3 +1,5 @@
+import axios from "axios"
+
 let usuarios = [
     {
         id: 1,
@@ -76,6 +78,17 @@ let usuarios = [
 function getDataProductos(url, headers, httpMethod, data) {
     return usuarios;
 }
+
+function getRequest(urlRequest, headers, httpMethod, dataBody) {
+    let promiseQuery = axios({
+        url: urlRequest,
+        headers: headers,
+        method: httpMethod,
+        data: dataBody,
+    });
+    return promiseQuery;
+}
+
 function getProductos(id) {
     let result = {};
     for (let i = 0; i < usuarios.length; i++) {
@@ -98,4 +111,4 @@ function getProductosByTipo(tipo){
     return result;
 }
 
-export { getDataProductos, getProductos, getProductosByTipo };
+export { getDataProductos, getProductos, getProductosByTipo, getRequest };

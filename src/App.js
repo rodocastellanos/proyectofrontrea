@@ -36,7 +36,7 @@ function App() {
                 <Route path="/Contactenos" element={<Contactenos />} />
                 <Route path="/usuarios/Registro" element={<Registro />} />
                 <Route
-                    path="/Productos"
+                    path="/ProductosVenta"
                     element={<Productos onclickfunc={onclickfunc} />}
                 />
                 <Route path="/Carrito" element={<Carrito />} />
@@ -51,15 +51,12 @@ function App() {
                     element={<EliminarUsuario />}
                 />
 
-                <Route path="/editarproductos" element={<ProductosIndex />} />
+                <Route path="/productos" element={<ProductosIndex />} />
                 <Route
                     path="/productos/update/:idProducto"
                     element={<ActualizarProdcutos />}
                 />
-                <Route
-                    path="/productos/registro"
-                    element={<CreateProducto />}
-                />
+                <Route path="/productos/create" element={<CreateProducto />}/>
                 <Route
                     path="/productos/delete/:idProducto"
                     element={<EliminarProducto />}
